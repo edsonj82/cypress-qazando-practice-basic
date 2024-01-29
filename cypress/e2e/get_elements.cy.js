@@ -1,5 +1,5 @@
-describe('login',() =>{
-    it('login successfully', ()=>{
+describe('Get Elementos',() =>{
+    it('Obter Elemetos', ()=>{
         
         cy.visit('/')
             .get('.header-logo')//get() - selecionar elementos
