@@ -1,10 +1,10 @@
-describe('Get Text',() =>{
-    it('Obter texto de um elemento', ()=>{
+describe('Get Text', () => {
+    it('Obter texto de um elemento', () => {
         cy.visit('/')
             .get('.header-logo')
-            //Promoções especiais disponíveis.
+        //Promoções especiais disponíveis.
         cy.get('.top_header_left p')
-            .then((element)=>{
+            .then((element) => {
                 console.log(element.text())
                 element.hide()
             })
