@@ -16,7 +16,19 @@ describe('Interações', () => {
         // cy.get('.fa-user')
         //     .click() //doubleClick //rightClick
 
-            cy.get('.form-control')
+        cy.get('.form-control')
             .type('eduardo.fintti@qazando.com {enter}')
+    })
+
+    it('Select', () => {
+        cy.visit('/')
+            .get('.header-logo')
+
+        cy.get('.footer_one_widget')
+            .contains('Checkout View Two')
+            .click()
+
+        cy.get('#country')
+            .select('Colombia')
     })
 })
