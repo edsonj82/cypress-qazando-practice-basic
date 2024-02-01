@@ -38,23 +38,22 @@ npm install cypress --save-dev
 ```
 $ sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 ```
-``
 
 3. Configurando o ZSH no Linux:
 
 ```
-* Terminal > Preferences > Profiles > New Profiles<br>
+Em Terminal > Preferences > Profiles > New Profiles
 
-Em "Command" selecionar a opção "Run a custom command instead of my shell<br>
-Em "Custom Command" digite "zsh" e fechar<br>
-Retorna ao terminal em preferências e selecione o profile criado como padrão<br>
+Em "Command" selecionar a opção "Run a custom command instead of my shell
+Em "Custom Command" digite "zsh" e fechar
+Retorna ao terminal em preferências e selecione o profile criado como padrão
 ```
-Termine com um exemplo de como obter dados do sistema ou como usá-los para uma pequena demonstração.
+<!-- Termine com um exemplo de como obter dados do sistema ou como usá-los para uma pequena demonstração. -->
 
 ## ⚙️ Executando os testes
-
+```
 npx cypress open
-
+```
 <!-- ### 🔩 Analise os testes de ponta a ponta
 
 Explique que eles verificam esses testes e porquê.
@@ -79,9 +78,9 @@ Adicione notas adicionais sobre como implantar isso em um sistema ativo -->
 
 Mencione as ferramentas que você usou para criar seu projeto
 
-* [OhMyZsh](https://ohmyz.sh/) - 1 framework web usado
-* [Cypress](https://www.cypress.io/) - Gerente de Dependência
-* [GIT](https://github.com/) - Usada para controle de versão do LAB estudado
+* [OhMyZsh](https://ohmyz.sh/) - interpretador de linha de comando
+* [Cypress](https://www.cypress.io/) - framework de dependência
+* [GIT](https://github.com/) - controlador de versionamento
 
 <!-- ## 🖇️ Colaborando
 
