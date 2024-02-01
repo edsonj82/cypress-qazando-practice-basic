@@ -31,4 +31,20 @@ describe('Interações', () => {
         cy.get('#country')
             .select('Colombia')
     })
+
+    it.only('Checkbox and Radio button', () => {
+        cy.visit('/')
+            .get('.header-logo')
+
+        cy.get('.footer_one_widget')
+            .contains('Checkout View One')
+            .click()
+
+        cy.get('#materialUnchecked')
+            .check()
+            .uncheck()
+
+            cy.get('#css')
+            .check()
+    })
 })
