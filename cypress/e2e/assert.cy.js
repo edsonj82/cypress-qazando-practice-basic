@@ -14,6 +14,11 @@ describe('Asserts', () => {
         cy.get('.account_form h3')
         .should('contain','Login')
         .should('have.text', 'Login')
+
+        cy.get('.account_form h3')
+        .then((element) =>{
+            expect(element.text()).eq('Login')
+        })
     })
 
 })
