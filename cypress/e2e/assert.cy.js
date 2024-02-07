@@ -18,6 +18,7 @@ describe('Asserts', () => {
         cy.get('.account_form h3')
         .then((element) =>{
             expect(element.text()).eq('Login')
+            expect(element).to.be.visible
         })
     })
 
