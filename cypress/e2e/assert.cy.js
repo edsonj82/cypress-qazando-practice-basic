@@ -19,6 +19,7 @@ describe('Asserts', () => {
         .then((element) =>{
             expect(element.text()).eq('Login')
             expect(element).to.be.visible
+            expect(element).not.disabled
         })
     })
 
