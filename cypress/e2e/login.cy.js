@@ -128,7 +128,7 @@ describe('login', () => {
             .should('have.text', 'Senha inválida.')
     });
 
-    it.only('validating login modal successfully', () => {
+    it('validating login modal successfully', () => {
         cy.visit('/').get('.header-logo')
 
         cy.get('.fa-user').click() //doubleClick //rightClick
