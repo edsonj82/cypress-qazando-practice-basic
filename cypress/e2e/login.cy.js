@@ -1,5 +1,5 @@
 describe('login', () => {
-    it('access login screen', () => {
+    it('shouldaccess login screen', () => {
         cy.visit('/')
             .get('.header-logo')
 
@@ -14,7 +14,7 @@ describe('login', () => {
             })
     })
 
-    it('validate login field', () => {
+    it('should validate login field', () => {
         cy.visit('/')
             .get('.header-logo')
 
@@ -51,9 +51,20 @@ describe('login', () => {
                 expect(element).to.be.visible
                 expect(element).not.disabled
             })
+    })
 
+    it('should show the login invalid', () => {
+        cy.visit('/')
+            .get('.header-logo')
 
+        cy.get('.fa-user')
+            .click() //doubleClick //rightClick
 
+        cy.get('#btnLogin')
+            .click()
 
+        cy.get('.invalid_input')
+            .should('be.visible')
+            .should('have.text', 'E-mail inválido.')
     })
 })
