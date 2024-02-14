@@ -92,7 +92,7 @@ describe('login', () => {
             .should('have.text', 'E-mail inválido.')
     });
 
-    it.only('invalid password', () => {
+    it('invalid password', () => {
         cy.visit('/').get('.header-logo')
 
         cy.get('.fa-user').click() //doubleClick //rightClick
@@ -106,5 +106,21 @@ describe('login', () => {
         cy.get('.invalid_input')
             .should('be.visible')
             .should('have.text', 'Senha inválida.')
+    });
+
+    it.only('should log in successfully', () => {
+        cy.visit('/').get('.header-logo')
+
+        cy.get('.fa-user').click() //doubleClick //rightClick
+
+        cy.get('#user').type('eduardo.fintti@qazando.com')
+        
+        cy.get('#password').type('123456')
+
+        cy.get('#btnLogin').click()
+
+        // cy.get('.invalid_input')
+        //     .should('be.visible')
+        //     .should('have.text', 'Senha inválida.')
     });
 })
