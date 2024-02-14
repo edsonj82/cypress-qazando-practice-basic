@@ -1,4 +1,24 @@
 describe('login', () => {
+
+    it('should log in successfully', () => {
+        cy.visit('/').get('.header-logo')
+
+        cy.get('.fa-user').click() //doubleClick //rightClick
+
+        cy.get('#user').type('eduardo.fintti@qazando.com')
+
+        cy.get('#password').type('123456')
+
+        cy.get('#btnLogin').click()
+
+        cy.get('#swal2-title')
+            .should('be.visible')
+            .should('have.text', 'Login realizado')
+
+        cy.get('.swal2-confirm')
+            .click()
+    });
+
     it('access login screen', () => {
         cy.visit('/').get('.header-logo')
 
@@ -98,7 +118,7 @@ describe('login', () => {
         cy.get('.fa-user').click() //doubleClick //rightClick
 
         cy.get('#user').type('eduardo.fintti@qazando.com')
-        
+
         cy.get('#password').type('12345')
 
         cy.get('#btnLogin').click()
@@ -108,13 +128,13 @@ describe('login', () => {
             .should('have.text', 'Senha inválida.')
     });
 
-    it.only('should log in successfully', () => {
+    it.only('validating login modal successfully', () => {
         cy.visit('/').get('.header-logo')
 
         cy.get('.fa-user').click() //doubleClick //rightClick
 
         cy.get('#user').type('eduardo.fintti@qazando.com')
-        
+
         cy.get('#password').type('123456')
 
         cy.get('#btnLogin').click()
@@ -122,5 +142,16 @@ describe('login', () => {
         cy.get('#swal2-title')
             .should('be.visible')
             .should('have.text', 'Login realizado')
+
+        // cy.get('.swal2-success-circular-line-right').should('be.visible')
+
+        cy.get('#swal2-html-container')
+            .should('be.visible')
+            .should('have.text', 'Olá, eduardo.fintti@qazando.com')
+
+        cy.get('.swal2-confirm')
+            .should('be.visible')
+            .should('have.text', 'OK')
+            .click()
     });
 })
