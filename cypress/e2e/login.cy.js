@@ -119,8 +119,8 @@ describe('login', () => {
 
         cy.get('#btnLogin').click()
 
-        // cy.get('.invalid_input')
-        //     .should('be.visible')
-        //     .should('have.text', 'Senha inválida.')
+        cy.get('#swal2-title')
+            .should('be.visible')
+            .should('have.text', 'Login realizado')
     });
 })
