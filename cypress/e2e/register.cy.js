@@ -1,7 +1,7 @@
 ///<reference types="cypress"/>
 
 describe("register", ()=>{
-    it.only('access register screen', () => {
+    it('access register screen', () => {
         
         cy.visit('/').get('.header-logo')
         cy.get('.fa-lock').click()
