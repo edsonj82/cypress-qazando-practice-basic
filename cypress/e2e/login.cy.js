@@ -1,3 +1,6 @@
+///<reference types="cypress"/>
+
+
 describe('login', () => {
 
     it('should log in successfully', () => {
