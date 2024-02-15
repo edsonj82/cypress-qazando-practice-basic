@@ -115,7 +115,7 @@ describe('login', () => {
         // cy.get('.swal2-success-circular-line-right').should('be.visible')
         cy.get('#swal2-html-container')
             .should('be.visible')
-            .should('have.text', 'Olá, eduardo.fintti@qazando.com')
+            .should('have.text', `Olá, ${user_email}`)
         cy.get('.swal2-confirm')
             .should('be.visible')
             .should('have.text', 'OK')
