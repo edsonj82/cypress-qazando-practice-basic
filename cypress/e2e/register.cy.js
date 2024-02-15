@@ -93,4 +93,16 @@ describe("register", () => {
             .should('be.visible')
             .should('have.text', 'O campo e-mail deve ser prenchido corretamente')
     })
+
+    it.only('blank password field', () => {
+        cy.visit('/').get('.header-logo')
+        cy.get('.fa-lock').click() //doubleClick //rightClick
+        cy.get('#user').type(user_name)
+        cy.get('#email').type(user_email)
+        cy.get('#password').type('pass@')
+        cy.get('#btnRegister').click()
+        cy.get('#errorMessageFirstName')
+            .should('be.visible')
+            .should('have.text', 'O campo senha deve ter pelo menos 6 dígitos')
+    })
 })
