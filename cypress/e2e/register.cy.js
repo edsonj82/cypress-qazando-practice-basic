@@ -5,6 +5,19 @@ describe("register", () => {
     const user_email = 'eduardo.finotti@qazando.com'
     const user_password = '123456'
 
+    it('should register user in successfully', () => {
+        cy.visit('/').get('.header-logo')
+        cy.get('.fa-lock').click() //doubleClick //rightClick
+        cy.get('#user').type(user_name)
+        cy.get('#email').type(user_email)
+        cy.get('#password').type(user_password)
+        cy.get('#btnRegister').click()
+        cy.get('#swal2-title')
+            .should('be.visible')
+            .should('have.text', 'Cadastro realizado!')
+        cy.get('.swal2-confirm').click()
+    });
+
     it('access register screen', () => {
 
         cy.visit('/').get('.header-logo')
@@ -94,7 +107,7 @@ describe("register", () => {
             .should('have.text', 'O campo e-mail deve ser prenchido corretamente')
     })
 
-    it.only('blank password field', () => {
+    it('blank password field', () => {
         cy.visit('/').get('.header-logo')
         cy.get('.fa-lock').click() //doubleClick //rightClick
         cy.get('#user').type(user_name)
