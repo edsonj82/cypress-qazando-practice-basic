@@ -1,5 +1,7 @@
 ///<reference types="cypress"/>
 
+const user_data = require('../fixtures/register_user_create.json')
+
 describe("register", () => {
     const user_name = 'Eduardo Finotti'
     const user_email = 'eduardo.finotti@qazando.com'
@@ -119,7 +121,7 @@ describe("register", () => {
             .should('have.text', 'O campo senha deve ter pelo menos 6 dígitos')
     })
 
-    it.only('validating register modal successfully', () => {
+    it('validating register modal successfully', () => {
         cy.visit('/').get('.header-logo')
         cy.get('.fa-lock').click() //doubleClick //rightClick
         cy.get('#user').type(user_name)
