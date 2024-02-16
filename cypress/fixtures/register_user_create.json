@@ -1,5 +1,5 @@
 {
-    "name":"Eduardo Finotti",
-    "email":"eduardo.finotti@qazando.com",
-    "password":"123456"
+    "user_name":"Eduardo Finotti",
+    "user_email":"eduardo.finotti@qazando.com",
+    "user_password":"123456"
 }
