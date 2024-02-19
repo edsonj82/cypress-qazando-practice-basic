@@ -7,10 +7,14 @@ describe("register", () => {
     // const user_name = 'Eduardo Finotti'
     // const user_email = 'eduardo.finotti@qazando.com'
     // const user_password = '123456'
-
-    it('should register user in successfully', () => {
+    beforeEach('', () => {
         cy.visit('/').get('.header-logo')
         cy.get('.fa-lock').click() //doubleClick //rightClick
+    })
+
+    it('should register user in successfully', () => {
+        // cy.visit('/').get('.header-logo')
+        // cy.get('.fa-lock').click() //doubleClick //rightClick
         cy.get('#user').type(faker.person.fullName())//.type(user_data.user_name)
         cy.get('#email').type(user_data.user_email)
         cy.get('#password').type(user_data.user_password)
@@ -23,8 +27,8 @@ describe("register", () => {
 
     it('access register screen', () => {
 
-        cy.visit('/').get('.header-logo')
-        cy.get('.fa-lock').click()
+        // cy.visit('/').get('.header-logo')
+        // cy.get('.fa-lock').click()
         cy.get('.account_form h3')
             .then((element) => {
                 expect(element.text()).eq('Cadastro de usuário')
@@ -34,8 +38,8 @@ describe("register", () => {
     });
 
     it('validate register field', () => {
-        cy.visit('/').get('.header-logo')
-        cy.get('.fa-lock').click()
+        // cy.visit('/').get('.header-logo')
+        // cy.get('.fa-lock').click()
         cy.get('.account_form h3')
             .should('contain', 'Cadastro de usuário')
             .should('have.text', 'Cadastro de usuário')
@@ -66,8 +70,8 @@ describe("register", () => {
     });
 
     it('blank name field', () => {
-        cy.visit('/').get('.header-logo')
-        cy.get('.fa-lock').click() //doubleClick //rightClick
+        // cy.visit('/').get('.header-logo')
+        // cy.get('.fa-lock').click() //doubleClick //rightClick
         cy.get('#email').type(user_data.user_email)
         cy.get('#password').type(user_data.user_password)
         cy.get('#btnRegister').click()
@@ -77,8 +81,8 @@ describe("register", () => {
     })
 
     it('blank e-mail field', () => {
-        cy.visit('/').get('.header-logo')
-        cy.get('.fa-lock').click() //doubleClick //rightClick
+        // cy.visit('/').get('.header-logo')
+        // cy.get('.fa-lock').click() //doubleClick //rightClick
         cy.get('#user').type(user_data.user_name)
         cy.get('#password').type(user_data.user_password)
         cy.get('#btnRegister').click()
@@ -88,8 +92,8 @@ describe("register", () => {
     })
 
     it('blank password field', () => {
-        cy.visit('/').get('.header-logo')
-        cy.get('.fa-lock').click() //doubleClick //rightClick
+        // cy.visit('/').get('.header-logo')
+        // cy.get('.fa-lock').click() //doubleClick //rightClick
         cy.get('#user').type(user_data.user_name)
         cy.get('#email').type(user_data.user_email)
         cy.get('#btnRegister').click()
@@ -99,8 +103,8 @@ describe("register", () => {
     })
 
     it('invalid e-mail', () => {
-        cy.visit('/').get('.header-logo')
-        cy.get('.fa-lock').click() //doubleClick //rightClick
+        // cy.visit('/').get('.header-logo')
+        // cy.get('.fa-lock').click() //doubleClick //rightClick
         cy.get('#user').type(user_data.user_name)
         cy.get('#email').type('username@teste')
         cy.get('#password').type(user_data.user_password)
@@ -111,8 +115,8 @@ describe("register", () => {
     })
 
     it('blank password field', () => {
-        cy.visit('/').get('.header-logo')
-        cy.get('.fa-lock').click() //doubleClick //rightClick
+        // cy.visit('/').get('.header-logo')
+        // cy.get('.fa-lock').click() //doubleClick //rightClick
         cy.get('#user').type(user_data.user_name)
         cy.get('#email').type(user_data.user_email)
         cy.get('#password').type('pass@')
@@ -125,9 +129,9 @@ describe("register", () => {
     it('validating register modal successfully', () => {
         const name = faker.person.fullName()
         const email = faker.internet.email()
-        
-        cy.visit('/').get('.header-logo')
-        cy.get('.fa-lock').click() //doubleClick //rightClick
+
+        // cy.visit('/').get('.header-logo')
+        // cy.get('.fa-lock').click() //doubleClick //rightClick
         cy.get('#user').type(name)
         cy.get('#email').type(email)
         cy.get('#password').type(user_data.user_password)
@@ -135,7 +139,7 @@ describe("register", () => {
         cy.get('#swal2-title')
             .should('be.visible')
             .should('have.text', 'Cadastro realizado!')
-            cy.get('#swal2-html-container')
+        cy.get('#swal2-html-container')
             .should('be.visible')
             .should('have.text', `Bem-vindo ${name}`)
         cy.get('.swal2-confirm')
