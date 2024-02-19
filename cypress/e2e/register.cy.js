@@ -7,7 +7,7 @@ describe("register", () => {
     // const user_name = 'Eduardo Finotti'
     // const user_email = 'eduardo.finotti@qazando.com'
     // const user_password = '123456'
-    beforeEach('', () => {
+    beforeEach('accessing the egistration page', () => {
         cy.visit('/').get('.header-logo')
         cy.get('.fa-lock').click() //doubleClick //rightClick
     })

@@ -1,17 +1,19 @@
 ///<reference types="cypress"/>
-import { faker } from '@faker-js/faker';
 const user_data = require('../fixtures/register_user_create.json')
-
 
 describe('login', () => {
 
     // const user_email = 'eduardo.fintti@qazando.com'
     // const user_password = '123456'
+    beforeEach('accessing the login page', () => {
+        cy.visit('/').get('.header-logo')
+        cy.get('.fa-user').click() //doubleClick //rightClick
+    })
 
     it('should log in successfully', () => {
 
-        cy.visit('/').get('.header-logo')
-        cy.get('.fa-user').click() //doubleClick //rightClick
+        // cy.visit('/').get('.header-logo')
+        // cy.get('.fa-user').click() //doubleClick //rightClick
         cy.get('#user').type(user_data.user_email)
         cy.get('#password').type(user_data.user_password)
         cy.get('#btnLogin').click()
@@ -22,8 +24,8 @@ describe('login', () => {
     });
 
     it('access login screen', () => {
-        cy.visit('/').get('.header-logo')
-        cy.get('.fa-user').click() //doubleClick //rightClick
+        // cy.visit('/').get('.header-logo')
+        // cy.get('.fa-user').click() //doubleClick //rightClick
         cy.get('.account_form h3')
             .then((element) => {
                 expect(element.text()).eq('Login')
@@ -34,8 +36,8 @@ describe('login', () => {
 
     it('validate login field', () => {
 
-        cy.visit('/').get('.header-logo')
-        cy.get('.fa-user').click() //doubleClick //rightClick
+        // cy.visit('/').get('.header-logo')
+        // cy.get('.fa-user').click() //doubleClick //rightClick
         cy.get('.account_form h3')
             .should('contain', 'Login')
             .should('have.text', 'Login')
@@ -63,8 +65,8 @@ describe('login', () => {
     })
 
     it('blank username field', () => {
-        cy.visit('/').get('.header-logo')
-        cy.get('.fa-user').click() //doubleClick //rightClick
+        // cy.visit('/').get('.header-logo')
+        // cy.get('.fa-user').click() //doubleClick //rightClick
         cy.get('#password').type(user_data.user_password)
         cy.get('#btnLogin').click()
         cy.get('.invalid_input')
@@ -73,8 +75,8 @@ describe('login', () => {
     })
 
     it('blank password field', () => {
-        cy.visit('/').get('.header-logo')
-        cy.get('.fa-user').click() //doubleClick //rightClick
+        // cy.visit('/').get('.header-logo')
+        // cy.get('.fa-user').click() //doubleClick //rightClick
         cy.get('#user').type(user_data.user_email)
         cy.get('#btnLogin').click()
         cy.get('.invalid_input')
@@ -84,8 +86,8 @@ describe('login', () => {
 
     // --required password field
     it('invalid e-mail', () => {
-        cy.visit('/').get('.header-logo')
-        cy.get('.fa-user').click() //doubleClick //rightClick
+        // cy.visit('/').get('.header-logo')
+        // cy.get('.fa-user').click() //doubleClick //rightClick
         cy.get('#user').type('teste@123')
         cy.get('#btnLogin').click()
         cy.get('.invalid_input')
@@ -94,8 +96,8 @@ describe('login', () => {
     });
 
     it('invalid password', () => {
-        cy.visit('/').get('.header-logo')
-        cy.get('.fa-user').click() //doubleClick //rightClick
+        // cy.visit('/').get('.header-logo')
+        // cy.get('.fa-user').click() //doubleClick //rightClick
         cy.get('#user').type(user_data.user_email)
         cy.get('#password').type('12345')
         cy.get('#btnLogin').click()
@@ -105,8 +107,8 @@ describe('login', () => {
     });
 
     it('validating login modal successfully', () => {
-        cy.visit('/').get('.header-logo')
-        cy.get('.fa-user').click() //doubleClick //rightClick
+        // cy.visit('/').get('.header-logo')
+        // cy.get('.fa-user').click() //doubleClick //rightClick
         cy.get('#user').type(user_data.user_email)
         cy.get('#password').type(user_data.user_password)
         cy.get('#btnLogin').click()
