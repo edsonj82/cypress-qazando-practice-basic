@@ -17,7 +17,8 @@ describe("register", () => {
         // cy.visit('/').get('.header-logo')
         // cy.get('.fa-lock').click() //doubleClick //rightClick
         cy.get('#user').type(faker.person.fullName())//.type(user_data.user_name)
-        cy.get('#email').type(user_data.user_email)
+        // cy.get('#email').type(user_data.user_email)
+        cy.fillEmail(user_data.user_email)
         cy.get('#password').type(user_data.user_password)
         // cy.get('#btnRegister').click()
         cy.saveRegister()
@@ -74,7 +75,8 @@ describe("register", () => {
     it('blank name field', () => {
         // cy.visit('/').get('.header-logo')
         // cy.get('.fa-lock').click() //doubleClick //rightClick
-        cy.get('#email').type(user_data.user_email)
+        // cy.get('#email').type(user_data.user_email)
+        cy.fillEmail(user_data.user_email)
         cy.get('#password').type(user_data.user_password)
         // cy.get('#btnRegister').click()
         cy.saveRegister()
@@ -99,7 +101,8 @@ describe("register", () => {
         // cy.visit('/').get('.header-logo')
         // cy.get('.fa-lock').click() //doubleClick //rightClick
         cy.get('#user').type(user_data.user_name)
-        cy.get('#email').type(user_data.user_email)
+        // cy.get('#email').type(user_data.user_email)
+        cy.fillEmail(user_data.user_email)
         // cy.get('#btnRegister').click()
         cy.saveRegister()
         cy.get('#errorMessageFirstName')
@@ -124,7 +127,8 @@ describe("register", () => {
         // cy.visit('/').get('.header-logo')
         // cy.get('.fa-lock').click() //doubleClick //rightClick
         cy.get('#user').type(user_data.user_name)
-        cy.get('#email').type(user_data.user_email)
+        // cy.get('#email').type(user_data.user_email)
+        cy.fillEmail(user_data.user_email)
         cy.get('#password').type('pass@')
         // cy.get('#btnRegister').click()
         cy.saveRegister()
