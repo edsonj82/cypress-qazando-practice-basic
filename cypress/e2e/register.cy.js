@@ -130,7 +130,7 @@ describe("register", () => {
         // cy.get('#errorMessageFirstName')
         //     .should('be.visible')
         //     .should('have.text', 'O campo e-mail deve ser prenchido corretamente')
-    cy.checkMessage('O campo e-mail deve ser prenchido corretamente')
+        cy.checkMessage('O campo e-mail deve ser prenchido corretamente')
     })
 
     it('blank password field', () => {
@@ -149,7 +149,7 @@ describe("register", () => {
         cy.checkMessage('O campo senha deve ter pelo menos 6 dígitos')
     })
 
-    it('validating register modal successfully', () => {
+    it.only('validating register modal successfully', () => {
         // const name = faker.person.fullName()
         // const email = faker.internet.email()
 
@@ -166,9 +166,10 @@ describe("register", () => {
         cy.get('#swal2-title')
             .should('be.visible')
             .should('have.text', 'Cadastro realizado!')
-        cy.get('#swal2-html-container')
-            .should('be.visible')
-            .should('have.text', `Bem-vindo ${user_data.user_name}`)
+        // cy.get('#swal2-html-container')
+        //     .should('be.visible')
+        //     .should('have.text', `Bem-vindo ${user_data.user_name}`)
+        cy.checkModalMessage(user_data.user_name)
         cy.get('.swal2-confirm')
             .should('be.visible')
             .should('have.text', 'OK')
