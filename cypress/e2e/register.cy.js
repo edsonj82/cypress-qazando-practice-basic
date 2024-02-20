@@ -127,9 +127,10 @@ describe("register", () => {
         cy.fillPassword(user_data.user_password)
         // cy.get('#btnRegister').click()
         cy.saveRegister()
-        cy.get('#errorMessageFirstName')
-            .should('be.visible')
-            .should('have.text', 'O campo e-mail deve ser prenchido corretamente')
+        // cy.get('#errorMessageFirstName')
+        //     .should('be.visible')
+        //     .should('have.text', 'O campo e-mail deve ser prenchido corretamente')
+    cy.checkMessage('O campo e-mail deve ser prenchido corretamente')
     })
 
     it('blank password field', () => {
@@ -142,9 +143,10 @@ describe("register", () => {
         cy.get('#password').type('pass@')
         // cy.get('#btnRegister').click()
         cy.saveRegister()
-        cy.get('#errorMessageFirstName')
-            .should('be.visible')
-            .should('have.text', 'O campo senha deve ter pelo menos 6 dígitos')
+        // cy.get('#errorMessageFirstName')
+        //     .should('be.visible')
+        //     .should('have.text', 'O campo senha deve ter pelo menos 6 dígitos')
+        cy.checkMessage('O campo senha deve ter pelo menos 6 dígitos')
     })
 
     it('validating register modal successfully', () => {

@@ -12,6 +12,12 @@ Cypress.Commands.add('fillName', (name) => {
     cy.get('#user').type(name)
 })
 
-Cypress.Commands.add('fillPassword',(password)=>{
+Cypress.Commands.add('fillPassword', (password) => {
     cy.get('#password').type(password)
+})
+
+Cypress.Commands.add('checkMessage', (message) => {
+    cy.get('#errorMessageFirstName')
+        .should('be.visible')
+        .should('have.text', message)
 })
