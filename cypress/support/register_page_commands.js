@@ -7,3 +7,7 @@ Cypress.Commands.add('saveRegister', () => {
 Cypress.Commands.add('fillEmail', (email) => {
     cy.get('#email').type(email)
 })
+
+Cypress.Commands.add('fillName', (name) => {
+    cy.get('#user').type(name)
+})
