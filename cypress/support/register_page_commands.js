@@ -23,7 +23,10 @@ Cypress.Commands.add('checkMessage', (message) => {
 })
 
 Cypress.Commands.add('checkModalMessage', (modalMessage) => {
+    cy.get('#swal2-title')
+        .should('be.visible')
+        .should('have.text', 'Cadastro realizado!')
     cy.get('#swal2-html-container')
-    .should('be.visible')
-    .should('have.text', `Bem-vindo ${modalMessage}`)
+        .should('be.visible')
+        .should('have.text', `Bem-vindo ${modalMessage}`)
 })
