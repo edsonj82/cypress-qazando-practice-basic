@@ -11,3 +11,7 @@ Cypress.Commands.add('fillEmail', (email) => {
 Cypress.Commands.add('fillName', (name) => {
     cy.get('#user').type(name)
 })
+
+Cypress.Commands.add('fillPassword',(password)=>{
+    cy.get('#password').type(password)
+})
