@@ -7,7 +7,7 @@ describe("register", () => {
     // const user_name = 'Eduardo Finotti'
     // const user_email = 'eduardo.finotti@qazando.com'
     // const user_password = '123456'
-    beforeEach('accessing the egistration page', () => {
+    beforeEach('accessing the registration page', () => {
         // cy.visit('/').get('.header-logo')
         // cy.get('.fa-lock').click() //doubleClick //rightClick
         cy.accessRegisterPage()
@@ -19,7 +19,8 @@ describe("register", () => {
         cy.get('#user').type(faker.person.fullName())//.type(user_data.user_name)
         cy.get('#email').type(user_data.user_email)
         cy.get('#password').type(user_data.user_password)
-        cy.get('#btnRegister').click()
+        // cy.get('#btnRegister').click()
+        cy.saveRegister()
         cy.get('#swal2-title')
             .should('be.visible')
             .should('have.text', 'Cadastro realizado!')
@@ -75,7 +76,8 @@ describe("register", () => {
         // cy.get('.fa-lock').click() //doubleClick //rightClick
         cy.get('#email').type(user_data.user_email)
         cy.get('#password').type(user_data.user_password)
-        cy.get('#btnRegister').click()
+        // cy.get('#btnRegister').click()
+        cy.saveRegister()
         cy.get('#errorMessageFirstName')
             .should('be.visible')
             .should('have.text', 'O campo nome deve ser prenchido')
@@ -86,7 +88,8 @@ describe("register", () => {
         // cy.get('.fa-lock').click() //doubleClick //rightClick
         cy.get('#user').type(user_data.user_name)
         cy.get('#password').type(user_data.user_password)
-        cy.get('#btnRegister').click()
+        // cy.get('#btnRegister').click()
+        cy.saveRegister()
         cy.get('#errorMessageFirstName')
             .should('be.visible')
             .should('have.text', 'O campo e-mail deve ser prenchido corretamente')
@@ -97,7 +100,8 @@ describe("register", () => {
         // cy.get('.fa-lock').click() //doubleClick //rightClick
         cy.get('#user').type(user_data.user_name)
         cy.get('#email').type(user_data.user_email)
-        cy.get('#btnRegister').click()
+        // cy.get('#btnRegister').click()
+        cy.saveRegister()
         cy.get('#errorMessageFirstName')
             .should('be.visible')
             .should('have.text', 'O campo senha deve ter pelo menos 6 dígitos')
@@ -109,7 +113,8 @@ describe("register", () => {
         cy.get('#user').type(user_data.user_name)
         cy.get('#email').type('username@teste')
         cy.get('#password').type(user_data.user_password)
-        cy.get('#btnRegister').click()
+        // cy.get('#btnRegister').click()
+        cy.saveRegister()
         cy.get('#errorMessageFirstName')
             .should('be.visible')
             .should('have.text', 'O campo e-mail deve ser prenchido corretamente')
@@ -121,7 +126,8 @@ describe("register", () => {
         cy.get('#user').type(user_data.user_name)
         cy.get('#email').type(user_data.user_email)
         cy.get('#password').type('pass@')
-        cy.get('#btnRegister').click()
+        // cy.get('#btnRegister').click()
+        cy.saveRegister()
         cy.get('#errorMessageFirstName')
             .should('be.visible')
             .should('have.text', 'O campo senha deve ter pelo menos 6 dígitos')
@@ -136,7 +142,8 @@ describe("register", () => {
         cy.get('#user').type(name)
         cy.get('#email').type(email)
         cy.get('#password').type(user_data.user_password)
-        cy.get('#btnRegister').click()
+        // cy.get('#btnRegister').click()
+        cy.saveRegister()
         cy.get('#swal2-title')
             .should('be.visible')
             .should('have.text', 'Cadastro realizado!')
