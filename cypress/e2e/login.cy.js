@@ -2,24 +2,13 @@
 const user_data = require('../fixtures/login_user_create.json')
 
 describe('login', () => {
-
-    // const user_email = 'eduardo.fintti@qazando.com'
-    // const user_password = '123456'
     beforeEach('accessing the login page', () => {
-        // cy.visit('/').get('.header-logo')
-        // cy.get('.fa-user').click() //doubleClick //rightClick
         cy.accessLoginPage()
     })
 
     it('should log in successfully', () => {
-
-        // cy.visit('/').get('.header-logo')
-        // cy.get('.fa-user').click() //doubleClick //rightClick
-        // cy.get('#user').type(user_data.user_email)
         cy.fillEmailLogin(user_data.user_email)
-        // cy.get('#password').type(user_data.user_password)
         cy.fillPasswordLogin(user_data.user_password)
-        // cy.get('#btnLogin').click()
         cy.loginUser()
         cy.get('#swal2-title')
             .should('be.visible')
@@ -28,8 +17,6 @@ describe('login', () => {
     });
 
     it('access login screen', () => {
-        // cy.visit('/').get('.header-logo')
-        // cy.get('.fa-user').click() //doubleClick //rightClick
         cy.get('.account_form h3')
             .then((element) => {
                 expect(element.text()).eq('Login')
@@ -39,9 +26,6 @@ describe('login', () => {
     })
 
     it('validate login field', () => {
-
-        // cy.visit('/').get('.header-logo')
-        // cy.get('.fa-user').click() //doubleClick //rightClick
         cy.get('.account_form h3')
             .should('contain', 'Login')
             .should('have.text', 'Login')
@@ -69,9 +53,6 @@ describe('login', () => {
     })
 
     it('blank username field', () => {
-        // cy.visit('/').get('.header-logo')
-        // cy.get('.fa-user').click() //doubleClick //rightClick
-        // cy.get('#password').type(user_data.user_password)
         cy.fillPasswordLogin(user_data.user_password)
         cy.get('#btnLogin').click()
         cy.get('.invalid_input')
@@ -80,11 +61,8 @@ describe('login', () => {
     })
 
     it('blank password field', () => {
-        // cy.visit('/').get('.header-logo')
-        // cy.get('.fa-user').click() //doubleClick //rightClick
-        // cy.get('#user').type(user_data.user_email)
         cy.fillEmailLogin(user_data.user_email)
-        cy.get('#btnLogin').click()
+        cy.loginUser()
         cy.get('.invalid_input')
             .should('be.visible')
             .should('have.text', 'Senha inválida.')
@@ -92,42 +70,26 @@ describe('login', () => {
 
     // --required password field
     it('invalid e-mail', () => {
-        // cy.visit('/').get('.header-logo')
-        // cy.get('.fa-user').click() //doubleClick //rightClick
         cy.get('#user').type('teste@123')
-        cy.get('#btnLogin').click()
+        cy.loginUser()
         cy.get('.invalid_input')
             .should('be.visible')
             .should('have.text', 'E-mail inválido.')
     });
 
     it('invalid password', () => {
-        // cy.visit('/').get('.header-logo')
-        // cy.get('.fa-user').click() //doubleClick //rightClick
-        // cy.get('#user').type(user_data.user_email)
         cy.fillEmailLogin(user_data.user_email)
         cy.get('#password').type('12345')
-        cy.get('#btnLogin').click()
+        cy.loginUser()
         cy.get('.invalid_input')
             .should('be.visible')
             .should('have.text', 'Senha inválida.')
     });
 
     it('validating login modal successfully', () => {
-        // cy.visit('/').get('.header-logo')
-        // cy.get('.fa-user').click() //doubleClick //rightClick
-        // cy.get('#user').type(user_data.user_email)
         cy.fillEmailLogin(user_data.user_email)
-        // cy.get('#password').type(user_data.user_password)
         cy.fillPasswordLogin(user_data.user_password)
-        // cy.get('#btnLogin').click()
         cy.loginUser()
-        // cy.get('#swal2-title')
-        //     .should('be.visible')
-        //     .should('have.text', 'Login realizado')
-        // cy.get('#swal2-html-container')
-        //     .should('be.visible')
-        //     .should('have.text', `Olá, ${user_data.user_email}`)
         cy.checkModalMessageLogin(user_data.user_email)
         cy.get('.swal2-confirm')
             .should('be.visible')

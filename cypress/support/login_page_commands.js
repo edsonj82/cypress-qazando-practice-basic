@@ -1,5 +1,22 @@
 ///<reference types="cypress"/>
 
+///Elements
+const elements = {
+    buttons: {
+        btnLogin: '#btnLogin'
+    },
+    fields: {
+        name: '#user',
+        email: '#email',
+        password: '#password'
+    },
+    messages: {
+        error: '#errorMessageFirstName',
+        successTitle: '#swal2-title',
+        successSubTitle: '#swal2-html-container'
+    }
+}
+
 ///Actions / Methods / Functions
 Cypress.Commands.add('accessLoginPage', () => {
     cy.visit('/').get('.header-logo')
@@ -7,15 +24,15 @@ Cypress.Commands.add('accessLoginPage', () => {
 })
 
 Cypress.Commands.add('loginUser', () => {
-    cy.get('#btnLogin').click()
+    cy.get(elements.buttons.btnLogin).click()
 })
 
 Cypress.Commands.add('fillEmailLogin', (emailLogin) => {
-    cy.get('#user').type(emailLogin)
+    cy.get(elements.fields.name).type(emailLogin)
 })
 
 Cypress.Commands.add('fillPasswordLogin', (emailPassword) => {
-    cy.get('#password').type(emailPassword)
+    cy.get(elements.fields.password).type(emailPassword)
 })
 
 Cypress.Commands.add('checkMessageLogin', (message) => {
@@ -25,10 +42,10 @@ Cypress.Commands.add('checkMessageLogin', (message) => {
 })
 
 Cypress.Commands.add('checkModalMessageLogin', (modalMessageLogin) => {
-    cy.get('#swal2-title')
+    cy.get(elements.messages.successTitle)
         .should('be.visible')
         .should('have.text', 'Login realizado')
-    cy.get('#swal2-html-container')
+    cy.get(elements.messages.successSubTitle)
         .should('be.visible')
         .should('have.text', `Olá, ${modalMessageLogin}`)
 })
