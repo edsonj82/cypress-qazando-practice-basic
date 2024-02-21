@@ -1,5 +1,5 @@
 ///<reference types="cypress"/>
-const user_data = require('../fixtures/register_user_create.json')
+const user_data = require('../fixtures/login_user_create.json')
 
 describe('login', () => {
 
@@ -15,7 +15,8 @@ describe('login', () => {
 
         // cy.visit('/').get('.header-logo')
         // cy.get('.fa-user').click() //doubleClick //rightClick
-        cy.get('#user').type(user_data.user_email)
+        // cy.get('#user').type(user_data.user_email)
+        cy.fillEmailLogin(user_data.user_email)
         cy.get('#password').type(user_data.user_password)
         // cy.get('#btnLogin').click()
         cy.loginUser()
@@ -79,7 +80,8 @@ describe('login', () => {
     it('blank password field', () => {
         // cy.visit('/').get('.header-logo')
         // cy.get('.fa-user').click() //doubleClick //rightClick
-        cy.get('#user').type(user_data.user_email)
+        // cy.get('#user').type(user_data.user_email)
+        cy.fillEmailLogin(user_data.user_email)
         cy.get('#btnLogin').click()
         cy.get('.invalid_input')
             .should('be.visible')
@@ -100,7 +102,8 @@ describe('login', () => {
     it('invalid password', () => {
         // cy.visit('/').get('.header-logo')
         // cy.get('.fa-user').click() //doubleClick //rightClick
-        cy.get('#user').type(user_data.user_email)
+        // cy.get('#user').type(user_data.user_email)
+        cy.fillEmailLogin(user_data.user_email)
         cy.get('#password').type('12345')
         cy.get('#btnLogin').click()
         cy.get('.invalid_input')
@@ -111,7 +114,8 @@ describe('login', () => {
     it('validating login modal successfully', () => {
         // cy.visit('/').get('.header-logo')
         // cy.get('.fa-user').click() //doubleClick //rightClick
-        cy.get('#user').type(user_data.user_email)
+        // cy.get('#user').type(user_data.user_email)
+        cy.fillEmailLogin(user_data.user_email)
         cy.get('#password').type(user_data.user_password)
         // cy.get('#btnLogin').click()
         cy.loginUser()
