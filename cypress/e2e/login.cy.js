@@ -17,7 +17,8 @@ describe('login', () => {
         // cy.get('.fa-user').click() //doubleClick //rightClick
         cy.get('#user').type(user_data.user_email)
         cy.get('#password').type(user_data.user_password)
-        cy.get('#btnLogin').click()
+        // cy.get('#btnLogin').click()
+        cy.loginUser()
         cy.get('#swal2-title')
             .should('be.visible')
             .should('have.text', 'Login realizado')
@@ -112,7 +113,8 @@ describe('login', () => {
         // cy.get('.fa-user').click() //doubleClick //rightClick
         cy.get('#user').type(user_data.user_email)
         cy.get('#password').type(user_data.user_password)
-        cy.get('#btnLogin').click()
+        // cy.get('#btnLogin').click()
+        cy.loginUser()
         cy.get('#swal2-title')
             .should('be.visible')
             .should('have.text', 'Login realizado')
