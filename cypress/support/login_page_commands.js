@@ -17,3 +17,18 @@ Cypress.Commands.add('fillEmailLogin', (emailLogin) => {
 Cypress.Commands.add('fillPasswordLogin', (emailPassword) => {
     cy.get('#password').type(emailPassword)
 })
+
+Cypress.Commands.add('checkMessageLogin', (message) => {
+    cy.get('#swal2-title')
+        .should('be.visible')
+        .should('have.text', message)
+})
+
+Cypress.Commands.add('checkModalMessageLogin', (modalMessageLogin) => {
+    cy.get('#swal2-title')
+        .should('be.visible')
+        .should('have.text', 'Login realizado')
+    cy.get('#swal2-html-container')
+        .should('be.visible')
+        .should('have.text', `Olá, ${modalMessageLogin}`)
+})
