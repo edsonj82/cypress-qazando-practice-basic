@@ -6,8 +6,9 @@ describe('login', () => {
     // const user_email = 'eduardo.fintti@qazando.com'
     // const user_password = '123456'
     beforeEach('accessing the login page', () => {
-        cy.visit('/').get('.header-logo')
-        cy.get('.fa-user').click() //doubleClick //rightClick
+        // cy.visit('/').get('.header-logo')
+        // cy.get('.fa-user').click() //doubleClick //rightClick
+        cy.accessLoginPage()
     })
 
     it('should log in successfully', () => {
