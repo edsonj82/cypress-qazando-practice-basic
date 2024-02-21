@@ -10,7 +10,10 @@ Cypress.Commands.add('loginUser', () => {
     cy.get('#btnLogin').click()
 })
 
-Cypress.Commands.add('fillEmailLogin',(emailLogin)=>{
+Cypress.Commands.add('fillEmailLogin', (emailLogin) => {
     cy.get('#user').type(emailLogin)
 })
 
+Cypress.Commands.add('fillPasswordLogin', (emailPassword) => {
+    cy.get('#password').type(emailPassword)
+})

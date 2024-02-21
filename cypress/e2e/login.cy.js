@@ -17,7 +17,8 @@ describe('login', () => {
         // cy.get('.fa-user').click() //doubleClick //rightClick
         // cy.get('#user').type(user_data.user_email)
         cy.fillEmailLogin(user_data.user_email)
-        cy.get('#password').type(user_data.user_password)
+        // cy.get('#password').type(user_data.user_password)
+        cy.fillPasswordLogin(user_data.user_password)
         // cy.get('#btnLogin').click()
         cy.loginUser()
         cy.get('#swal2-title')
@@ -70,7 +71,8 @@ describe('login', () => {
     it('blank username field', () => {
         // cy.visit('/').get('.header-logo')
         // cy.get('.fa-user').click() //doubleClick //rightClick
-        cy.get('#password').type(user_data.user_password)
+        // cy.get('#password').type(user_data.user_password)
+        cy.fillPasswordLogin(user_data.user_password)
         cy.get('#btnLogin').click()
         cy.get('.invalid_input')
             .should('be.visible')
@@ -116,7 +118,8 @@ describe('login', () => {
         // cy.get('.fa-user').click() //doubleClick //rightClick
         // cy.get('#user').type(user_data.user_email)
         cy.fillEmailLogin(user_data.user_email)
-        cy.get('#password').type(user_data.user_password)
+        // cy.get('#password').type(user_data.user_password)
+        cy.fillPasswordLogin(user_data.user_password)
         // cy.get('#btnLogin').click()
         cy.loginUser()
         cy.get('#swal2-title')
