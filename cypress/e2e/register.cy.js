@@ -1,5 +1,6 @@
 ///<reference types="cypress"/>
 import { faker } from '@faker-js/faker';
+import home_page from '../support/pages/home_page';
 
 const user_data = require('../fixtures/register_user_create.json')
 
@@ -10,7 +11,8 @@ describe("register", () => {
     beforeEach('accessing the registration page', () => {
         // cy.visit('/').get('.header-logo')
         // cy.get('.fa-lock').click() //doubleClick //rightClick
-        cy.accessRegisterPage()
+        // cy.accessRegisterPage()
+        home_page.accessRegisterPage()
     })
 
     it('should register user in successfully', () => {
