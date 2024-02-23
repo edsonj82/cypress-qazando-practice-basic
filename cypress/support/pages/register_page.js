@@ -18,36 +18,36 @@ const elements = {
     }
 }
 
-export default{
+export default {
     ///Actions / Methods / Functions
-Cypress.Commands.add('saveRegister', () => {
-    cy.get(elements.buttons.btnRegister).click()
-})
+    saveRegister() {
+        cy.get(elements.buttons.btnRegister).click()
+    },
 
-Cypress.Commands.add('fillEmail', (email) => {
-    cy.get(elements.fields.email).type(email)
-})
+    fillEmail(email) {
+        cy.get(elements.fields.email).type(email)
+    },
 
-Cypress.Commands.add('fillName', (name) => {
-    cy.get(elements.fields.name).type(name)
-})
+    fillName(name) {
+        cy.get(elements.fields.name).type(name)
+    },
 
-Cypress.Commands.add('fillPassword', (password) => {
-    cy.get(elements.fields.password).type(password)
-})
+    fillPassword(password) {
+        cy.get(elements.fields.password).type(password)
+    },
 
-Cypress.Commands.add('checkMessage', (message) => {
-    cy.get(elements.messages.error)
-        .should('be.visible')
-        .should('have.text', message)
-})
+    checkMessage(message) {
+        cy.get(elements.messages.error)
+            .should('be.visible')
+            .should('have.text', message)
+    },
 
-Cypress.Commands.add('checkModalMessage', (modalMessage) => {
-    cy.get(elements.messages.successTitle)
-        .should('be.visible')
-        .should('have.text', 'Cadastro realizado!')
-    cy.get(elements.messages.successSubTitle)
-        .should('be.visible')
-        .should('have.text', `Bem-vindo ${modalMessage}`)
-})
+    checkModalMessage(modalMessage) {
+        cy.get(elements.messages.successTitle)
+            .should('be.visible')
+            .should('have.text', 'Cadastro realizado!')
+        cy.get(elements.messages.successSubTitle)
+            .should('be.visible')
+            .should('have.text', `Bem-vindo ${modalMessage}`)
+    }
 }
