@@ -1,15 +1,16 @@
 ///<reference types="cypress"/>
 const user_data = require('../fixtures/login_user_create.json')
+import login_page from '../support/pages/login_page'
 
 describe('login', () => {
     beforeEach('accessing the login page', () => {
-        cy.accessLoginPage()
+        login_page.accessLoginPage()
     })
 
     it('should log in successfully', () => {
-        cy.fillEmailLogin(user_data.user_email)
-        cy.fillPasswordLogin(user_data.user_password)
-        cy.loginUser()
+        login_page.fillEmailLogin(user_data.user_email)
+        login_page.fillPasswordLogin(user_data.user_password)
+        login_page.loginUser()
         cy.get('#swal2-title')
             .should('be.visible')
             .should('have.text', 'Login realizado')
@@ -53,7 +54,7 @@ describe('login', () => {
     })
 
     it('blank username field', () => {
-        cy.fillPasswordLogin(user_data.user_password)
+        login_page.fillPasswordLogin(user_data.user_password)
         cy.get('#btnLogin').click()
         cy.get('.invalid_input')
             .should('be.visible')
@@ -61,8 +62,8 @@ describe('login', () => {
     })
 
     it('blank password field', () => {
-        cy.fillEmailLogin(user_data.user_email)
-        cy.loginUser()
+        login_page.fillEmailLogin(user_data.user_email)
+        login_page.loginUser()
         cy.get('.invalid_input')
             .should('be.visible')
             .should('have.text', 'Senha inválida.')
@@ -71,26 +72,26 @@ describe('login', () => {
     // --required password field
     it('invalid e-mail', () => {
         cy.get('#user').type('teste@123')
-        cy.loginUser()
+        login_page.loginUser()
         cy.get('.invalid_input')
             .should('be.visible')
             .should('have.text', 'E-mail inválido.')
     });
 
     it('invalid password', () => {
-        cy.fillEmailLogin(user_data.user_email)
+        login_page.fillEmailLogin(user_data.user_email)
         cy.get('#password').type('12345')
-        cy.loginUser()
+        login_page.loginUser()
         cy.get('.invalid_input')
             .should('be.visible')
             .should('have.text', 'Senha inválida.')
     });
 
     it('validating login modal successfully', () => {
-        cy.fillEmailLogin(user_data.user_email)
-        cy.fillPasswordLogin(user_data.user_password)
-        cy.loginUser()
-        cy.checkModalMessageLogin(user_data.user_email)
+        login_page.fillEmailLogin(user_data.user_email)
+        login_page.fillPasswordLogin(user_data.user_password)
+        login_page.loginUser()
+        login_page.checkModalMessageLogin(user_data.user_email)
         cy.get('.swal2-confirm')
             .should('be.visible')
             .should('have.text', 'OK')
